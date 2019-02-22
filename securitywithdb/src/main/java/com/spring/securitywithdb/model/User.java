@@ -50,6 +50,7 @@ public class User {
 		this.lastName = user.getLastName();
 		this.firstName = user.getFirstName();
 		this.password = user.getPassword();
+		this.roles = user.getRoles();
 	}
 
 	public int getId() {

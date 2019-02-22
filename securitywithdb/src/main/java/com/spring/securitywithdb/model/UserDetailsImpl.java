@@ -13,17 +13,17 @@ public class UserDetailsImpl extends User implements UserDetails{
 	User user;
 
 	public UserDetailsImpl(User user) {
-		//super(user);
-		this.user = user;
+		super(user);
+		//this.user = user;
 		
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		
-		System.out.println("Roles Set:"+this.user.getRoles());
+		System.out.println("Roles Set:"+getRoles());
 		
-		 List<SimpleGrantedAuthority> list = this.user.getRoles().stream()
+		 List<SimpleGrantedAuthority> list = getRoles().stream()
 					.map(role -> new SimpleGrantedAuthority("ROLE_"+ role.getRoleName())).collect(Collectors.toList());
 		 
 		 System.out.println("List :"+list.toString());
